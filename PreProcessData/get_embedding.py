@@ -12,7 +12,7 @@ from numpy import expand_dims
 
 # Loading model
 
-MODELK = load_model('facenet_keras.h5')
+MODELK = load_model('facenet_keras.h5', compile=False)
 optimizer = Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
 MODELK.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
