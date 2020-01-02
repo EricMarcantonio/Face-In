@@ -9,7 +9,6 @@ from PreProcessData.extract_face import extract_face
 from PreProcessData.get_embedding import get_embedding
 
 # Holds model
-
 with open("trained_model", "rb") as f:
     model = pickle.load(f)
 

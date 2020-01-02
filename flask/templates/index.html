@@ -23,18 +23,18 @@
             <div class="d-flex align-items-center justify-content-center h-100">
                 <div class="d-flex flex-column">
                     <h1 class="text align-self-center p-2">ML-Check-In-System</h1>
-                    <button class="btn btn-danger align-self-center p-2" id="snap" type="button" name="button">Check
-                        In</button>
+                    <button class="btn btn-danger align-self-center p-2" id="snap" type="button" name="button">Check In</button>
                     <div class="align-self-center">
                         <video id="video" width="640" height="480" autoplay></video>
-                        <canvas id="canvas" width="640" height="480"></canvas>
+                        <canvas style="display: none;" id="canvas" width="640" height="480"></canvas>
                     </div>
                 </div>
+                <p id="image_data"></p>
         </header>
     </section>
 
     <script>
-
+        // THE FOLLOWING CODE IS FROM https://davidwalsh.name/browser-camera
         // Put event listeners into place
         window.addEventListener("DOMContentLoaded", function () {
             // Grab elements, create settings, etc.
@@ -80,10 +80,12 @@
         }, false);
 
         function downloadImage() {
-            var link = document.createElement('a');
-            link.download = 'image.png';
-            link.href = document.getElementById('canvas').toDataURL()
-            link.click();
+            // Sends image from canvas to server
+            var params = {"image": document.getElementById('canvas').toDataURL()}
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/image")
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.send(JSON.stringify(params))
         }
 
     </script>
