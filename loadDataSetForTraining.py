@@ -5,6 +5,8 @@ from keras.models import load_model
 from mtcnn.mtcnn import MTCNN
 from numpy import asarray, expand_dims
 
+
+
 '''
 Extracts a face from a single file.
 
@@ -36,6 +38,8 @@ def extract_face(filename, required_size=(160, 160)):
     image = Image.fromarray(face)
     image = image.resize(required_size)
     face_array = asarray(image)
+
+
     return face_array
 
 

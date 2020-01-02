@@ -1,14 +1,10 @@
-from PIL import Image
+from keras.models import load_model
 from numpy import expand_dims
-from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import Normalizer
 from sklearn.svm import SVC
 
 from loadDataSetForTraining import returnForModelTraining, extract_face, get_embedding
-from PIL import Image
-
-from keras.models import load_model
 
 trainX, trainy = returnForModelTraining()
 
@@ -35,7 +31,6 @@ model.fit(trainX, trainy)
 Testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 '''
 
-
 oneEmb = get_embedding(load_model('facenet_keras.h5'), extract_face("test_pics/testConnor.JPG"))
 
 samples = expand_dims(oneEmb, axis=0)
@@ -47,10 +42,5 @@ class_prob = yhat_prob[0, class_index] * 100
 
 predict_names = out_encoder.inverse_transform(yhat_class)
 
-print (predict_names[0])
-print (class_prob)
-
-
-
-
-
+print(predict_names[0])
+print(class_prob)
