@@ -17,7 +17,8 @@ optimizer = Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, a
 MODELK.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 
-def get_embedding(face_pixels, model=MODELK):
+def get_embedding(face_pixels):
+
     # scale pixel values
     face_pixels = face_pixels.astype('float32')
     # standardize pixel values across channels (global)
@@ -26,6 +27,6 @@ def get_embedding(face_pixels, model=MODELK):
     # transform face into one sample
     samples = expand_dims(face_pixels, axis=0)
     # make prediction to get embedding
-    yhat = model.predict(samples)
+    yhat = MODELK.predict(samples)
 
     return yhat[0]

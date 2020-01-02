@@ -1,5 +1,6 @@
 import os
 import time
+
 from matplotlib import pyplot
 
 # Reducing verbosity level 
@@ -9,15 +10,15 @@ from loadTrainSaveModelEncoder import trainModel
 from usingPreTrainedModel import getPrediction
 
 
-def testImage():
-    for filename in os.listdir("test_pics"):
-        predicted_name, prediction_percent, face_pixels = getPrediction(filename)
+def testImage(photoPath):
+    predicted_name, prediction_percent, face_pixels = getPrediction(photoPath)
 
-        pyplot.imshow(face_pixels)
-        pyplot.title(str(predicted_name + " " + str(round(prediction_percent, 2))))
-        pyplot.show()
+    pyplot.imshow(face_pixels)
+    pyplot.title(str(predicted_name + " " + str(round(prediction_percent, 2))))
+    pyplot.show()
 
-        print("I think this picture is, %s and I am %f %% sure. It really was %s" % (predicted_name, prediction_percent, filename)) 
+    print("I think this picture is, %s and I am %f %% sure. It really was %s" % (
+        predicted_name, prediction_percent, photoPath))
 
 
 def menu():
@@ -26,7 +27,7 @@ def menu():
     print("1. Train")
     print("2. Test")
     print("3. Exit")
-    
+
     while True:
         userInput = input(": ")
         if userInput == "1":
@@ -36,7 +37,7 @@ def menu():
             print('Total training time: ', end_time - start_time)
         elif userInput == "2":
             start_time = time.time()
-            testImage()
+            testImage("Sha.jpg")
             end_time = time.time()
             print('Total testing time: ', end_time - start_time)
         elif userInput == "3":
@@ -44,7 +45,8 @@ def menu():
         else:
             print("=== INVALID INPUT ===")
             trainModel()
-            testImage()
+            testImage("Sha.jpg")
+
 
 # Priyanka Chopra
 # Shahrukh Khan
