@@ -4,11 +4,12 @@ from keras.models import load_model
 from keras.optimizers import Adam
 from numpy import expand_dims
 
-from loadDataSetForTraining import extract_face, get_embedding
+# Loading model
+from PreProcessData.extract_face import extract_face
+from PreProcessData.get_embedding import get_embedding
 
 # Holds model
 
-# Loading model
 with open("trained_model", "rb") as f:
     model = pickle.load(f)
 
@@ -34,5 +35,4 @@ def getPrediction(filename):
 
     predict_names = out_encoder.inverse_transform(yhat_class)
 
-    print(predict_names[0])
-    print(round(class_prob, 5))
+    return predict_names[0], round(class_prob, 5)
