@@ -25,7 +25,7 @@ def load_dataset(directory):
         # create labels
         labels = [subdir for _ in range(len(faces))]
         # summarize progress
-        print('>loaded %d examples for class: %s' % (len(faces), subdir))
+
         # store
         X.extend(faces)
         y.extend(labels)

@@ -20,8 +20,8 @@ def getPrediction(filename):
     # Load the encoder
     with open("out_encoder", "rb") as f:
         out_encoder = pickle.load(f)
-
-    oneEmb = get_embedding(extract_face("test_pics/" + filename))
+    face_pixels = extract_face("test_pics/" + filename)
+    oneEmb = get_embedding(face_pixels)
 
     samples = expand_dims(oneEmb, axis=0)
     yhat_class = model.predict(samples)
@@ -32,4 +32,4 @@ def getPrediction(filename):
 
     predict_names = out_encoder.inverse_transform(yhat_class)
 
-    return predict_names[0], round(class_prob, 5)
+    return predict_names[0], round(class_prob, 5), face_pixels
