@@ -1,11 +1,8 @@
 import os
 import pickle
 import time
-
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import Normalizer
 from sklearn.svm import SVC
-
+from sklearn.preprocessing import LabelEncoder,  Normalizer
 from PreProcessData.main import returnForModelTraining
 
 

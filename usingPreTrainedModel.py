@@ -1,25 +1,21 @@
 import pickle
-
+from numpy import expand_dims
 from keras.models import load_model
 from keras.optimizers import Adam
-from numpy import expand_dims
-
 # Loading model
 from PreProcessData.extract_face import extract_face
 from PreProcessData.get_embedding import get_embedding
 
 
-
-
 def getPrediction(filename):
     # Holds model
-
     with open("trained_model", "rb") as f:
         model = pickle.load(f)
 
     # Load the encoder
     with open("out_encoder", "rb") as f:
         out_encoder = pickle.load(f)
+   
     face_pixels = extract_face("test_pics/" + filename)
     oneEmb = get_embedding(face_pixels)
 
