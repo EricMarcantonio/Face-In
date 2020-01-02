@@ -5,11 +5,11 @@ from PreProcessData.load_dataset import load_dataset
 from keras.models import load_model
 
 
-def returnForModelTraining(model = load_model("facenet_keras.h5"), PATH = "rawPictures"):
+def returnForModelTraining( PATH = "rawPictures"):
     trainX, trainy = load_dataset(PATH)
 
     newTrainX = []
     for eachFace in trainX:
-        temp = get_embedding(model, eachFace)
+        temp = get_embedding(eachFace)
         newTrainX.append(temp)
     return asarray(newTrainX), trainy

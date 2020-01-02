@@ -8,23 +8,20 @@ from numpy import expand_dims
 from PreProcessData.extract_face import extract_face
 from PreProcessData.get_embedding import get_embedding
 
-# Holds model
 
-with open("trained_model", "rb") as f:
-    model = pickle.load(f)
-
-# Load the encoder
-with open("out_encoder", "rb") as f:
-    out_encoder = pickle.load(f)
 
 
 def getPrediction(filename):
-    '''Compile and load the facenet embedding'''
-    MODELK = load_model('facenet_keras.h5')
-    optimizer = Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
-    MODELK.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    # Holds model
 
-    oneEmb = get_embedding(MODELK, extract_face("test_pics/" + filename))
+    with open("trained_model", "rb") as f:
+        model = pickle.load(f)
+
+    # Load the encoder
+    with open("out_encoder", "rb") as f:
+        out_encoder = pickle.load(f)
+
+    oneEmb = get_embedding(extract_face("test_pics/" + filename))
 
     samples = expand_dims(oneEmb, axis=0)
     yhat_class = model.predict(samples)

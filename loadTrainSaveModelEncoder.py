@@ -1,3 +1,4 @@
+import os
 import pickle
 import time
 
@@ -9,6 +10,10 @@ from PreProcessData.main import returnForModelTraining
 
 
 def trainModel():
+    if os.path.exists("./out_encoder"):
+        os.remove("./out_encoder")
+    if os.path.exists("./trained_model"):
+        os.remove("./trained_model")
     '''
     Read and preprocess data for training
     '''
