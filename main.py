@@ -1,10 +1,13 @@
 from os import listdir
 
 from loadTrainSaveModelEncoder import trainModel
+
+
 from usingPreTrainedModel import getPrediction
 
 trainModel()
-trainModel()
+
+
 for filename in listdir("test_pics"):
 
     predicted_name, prediction_percent = getPrediction(filename)
