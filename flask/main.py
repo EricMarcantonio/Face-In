@@ -87,10 +87,10 @@ def adminUpdateUsers():
 def getUser(userId):
     # if user id equal -1 return all users from database
     if (request.method == "GET"):
-        if (userId != -1):
-            return dbClient.ReadSingle(userId)
+        if (userId == "abcde"):
+            return dbClient.ReadAll()
         else:
-            return jsonify(dbClient.ReadAll())
+            return jsonify(dbClient.ReadSingle(userId))
     else:
         return "Invalid Request Method"
 

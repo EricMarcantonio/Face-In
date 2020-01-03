@@ -1,5 +1,6 @@
 import pymongo
-from bson import objectid
+from bson import objectid, json_util
+import json
 
 # Connection String
 class Mongodb(object):
@@ -56,7 +57,16 @@ class Mongodb(object):
         }
 
     def ReadAll(self):
+        # docs = []
+        docs = json_util.dumps(self.db["Users"].find())
+        # x = data.next()
+        # x["_id"] = str(objectid.ObjectId(x["_id"]))
+        # for i in data.where():
+        #     x = data.next()
+        #     x["_id"] = str(objectid.ObjectId(x["_id"]))
+        #     docs.append(x)
+
         return {
             "response": True,
-            "data":self.db["Users"].find({})
+            "data": docs
         }
