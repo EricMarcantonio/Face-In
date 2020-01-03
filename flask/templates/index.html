@@ -83,7 +83,7 @@
             // Sends image from canvas to server
             var params = {"image": document.getElementById('canvas').toDataURL()}
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/image")
+            xhr.open("POST", "/valuation")
             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhr.send(JSON.stringify(params))
         }
