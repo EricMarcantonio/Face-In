@@ -1,8 +1,3 @@
----
-
-
----
-
 <h1 id="welcome-to-faceit">Welcome to FaceIt</h1>
 <p><strong>FaceIt</strong> is a open source project, dedicated to helping businesses and companies verify and check in human beings using Facial Recognition and some intuition</p>
 <h1 id="in-a-nutshell">In a nutshell</h1>
