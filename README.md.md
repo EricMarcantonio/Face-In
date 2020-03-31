@@ -1,6 +1,6 @@
-# Facial Check In System Us
+# Facial Recognition Check In System
 
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+Originally built for a hackathon, this project aims to check users in once 
 
 
 # Files
@@ -142,5 +142,5 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzc5MjAwNzddfQ==
+eyJoaXN0b3J5IjpbLTI2NjQwMTEzOV19
 -->
