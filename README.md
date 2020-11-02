@@ -12,4 +12,4 @@ Using Python, scan and recognize faces. Can easily be incorperated with other pl
 python3 main.py
 ```
 
-## There is also support for a flask server. Implement as you wish!
+### There is also support for a flask server. Implement as you wish!
